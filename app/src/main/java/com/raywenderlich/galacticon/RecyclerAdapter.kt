@@ -27,23 +27,22 @@ class RecyclerAdapter (private val photos: ArrayList<Photo>) : RecyclerView.Adap
     }
 
     //1
-    class PhotoHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+    class PhotoHolder(private val view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
         //2
-        private var view: View = v
         private var photo: Photo? = null
 
         //3
         init {
-            v.setOnClickListener(this)
+            view.setOnClickListener(this)
         }
 
         //4
         override fun onClick(v: View) {
-            Log.d("RecyclerView", "CLICK!")
             val context = itemView.context
             val showPhotoIntent = Intent(context, PhotoActivity::class.java)
             showPhotoIntent.putExtra(PHOTO_KEY, photo)
             context.startActivity(showPhotoIntent)
+            Log.d("RecyclerView", "CLICK!")
 
         }
 
