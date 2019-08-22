@@ -14,6 +14,7 @@ class RecyclerAdapter (private val photos: ArrayList<Photo>) : RecyclerView.Adap
         val inflatedView = parent.inflate(R.layout.recyclerview_item_row, false)
         return PhotoHolder(inflatedView)
 
+
     }
 
     override fun getItemCount(): Int {
